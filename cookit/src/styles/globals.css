@@ -1,0 +1,33 @@
+:root {
+  --primary: #ff8a65;
+  --secondary: #fff0e8;
+  --accent: #81c784;
+  --background: #fffdf8;
+  --text: #2e2e2e;
+  --error: #e53935;
+  --success: #43a047;
+  --radius: 16px;
+  --spacing: 8px;
+  font-family: Inter, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius);
+  padding: 12px 20px;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+}
