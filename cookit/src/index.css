@@ -178,3 +178,26 @@ code {
     width: 100%;
   }
 }
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: center !important;
+    gap: 18px !important;
+    padding: 16px 10px !important;
+  }
+
+  .navbar .logo,
+  .navbar-logo {
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 6px !important;
+  }
+
+  .navbar a {
+    font-size: 16px !important;
+    margin: 0 !important;
+  }
+
+  .navbar button {
+    padding: 10px 18px !important;
+  }
+}
