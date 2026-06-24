@@ -109,3 +109,43 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+@media (max-width: 768px) {
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  main {
+    padding: 16px !important;
+    padding-bottom: 90px !important;
+  }
+
+  .recipe-gallery {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .recipe-card {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .recipe-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  nav,
+  .navbar {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .bottom-navigation,
+  .bottom-nav {
+    width: 100%;
+  }
+}
