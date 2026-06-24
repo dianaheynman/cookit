@@ -93,6 +93,14 @@ Open:
 ```txt
 http://localhost:5173
 ```
+## Demo Account
+
+For testing purposes:
+
+**Email:** demo@cookit.com
+
+**Password:** Demo1234
+
 
 ## Author
 
