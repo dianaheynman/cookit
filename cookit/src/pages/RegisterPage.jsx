@@ -5,6 +5,7 @@ import { supabase } from "../supabase";
 function RegisterPage() {
   const navigate = useNavigate();
 
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -13,7 +14,7 @@ function RegisterPage() {
     e.preventDefault();
     setError("");
 
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
     });
@@ -21,6 +22,22 @@ function RegisterPage() {
     if (error) {
       setError(error.message);
       return;
+    }
+
+    if (data.user) {
+      const { error: profileError } = await supabase.from("profiles").insert([
+        {
+          id: data.user.id,
+          full_name: fullName,
+          email: email,
+          bio: "",
+          profile_image: "",
+        },
+      ]);
+
+      if (profileError) {
+        console.log(profileError);
+      }
     }
 
     alert("Account created successfully!");
@@ -33,6 +50,13 @@ function RegisterPage() {
         <h1>Register</h1>
 
         {error && <p>{error}</p>}
+
+        <input
+          type="text"
+          placeholder="Full Name"
+          value={fullName}
+          onChange={(e) => setFullName(e.target.value)}
+        />
 
         <input
           type="email"
