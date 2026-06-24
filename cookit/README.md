@@ -1,7 +1,41 @@
 # CookIt 🍳
 
-CookIt is a recipe web application built with React and Supabase.  
-The app allows users to browse recipes, view ingredients and cooking instructions, manage favorites, and use authentication features.
+## Overview
+
+CookIt is a recipe management web application that helps users discover, organize, and save recipes in one place. Users can browse recipes, view ingredients and cooking instructions, and manage their favorite meals through a simple and user-friendly interface.
+
+## Problem Statement
+
+Many people save recipes in scattered places such as social media posts, screenshots, notes, or websites. This makes it difficult to find recipes later and organize them effectively.
+
+CookIt provides a centralized platform where users can access recipes quickly and keep their favorite recipes organized.
+
+## Target Audience
+
+CookIt is designed for:
+
+* Home cooks looking for meal inspiration
+* Students and young adults who cook regularly
+* Users who want a simple way to store and browse recipes
+* Anyone who wants quick access to ingredients and cooking instructions
+
+## Competitors and Differentiation
+
+### Existing Solutions
+
+* Recipe websites
+* Pinterest
+* Social media platforms
+* Notes applications
+* Saving screenshots manually
+
+### How CookIt Is Different
+
+* Clean and simple interface
+* Centralized recipe collection
+* Favorites management
+* Easy access to ingredients and instructions
+* Responsive design for desktop and mobile devices
 
 ## Live Website
 
@@ -9,66 +43,57 @@ https://cookit-j5ou.vercel.app
 
 ## Technologies Used
 
-- React
-- Vite
-- JavaScript
-- CSS
-- Supabase
-- Vercel
-- GitHub
+* React
+* Vite
+* JavaScript
+* CSS
+* Supabase
+* GitHub
+* Vercel
+
+## External Services & Integrations
+
+| Service  | Type                      | Purpose                                |
+| -------- | ------------------------- | -------------------------------------- |
+| Supabase | Database & Authentication | Store recipes and manage user accounts |
+| GitHub   | Version Control           | Source code management                 |
+| Vercel   | Hosting & Deployment      | Host the live application              |
 
 ## Main Features
 
-- User registration and login
-- Dashboard page
-- Recipe list
-- Recipe details page
-- Ingredients and instructions for each recipe
-- Favorites page
-- Profile page
-- Responsive design for desktop and mobile
-- Supabase database connection
-- Deployment with Vercel
+* User registration and login
+* Dashboard page
+* Recipe browsing
+* Recipe details page
+* Ingredients and cooking instructions
+* Favorites page
+* User profile page
+* Responsive design
 
 ## Project Structure
 
 ```txt
 src/
 ├── components/
-│   ├── Navbar/
-│   ├── BottomNavigation/
-│   └── RecipeCard/
 ├── pages/
-│   ├── LandingPage.jsx
-│   ├── LoginPage.jsx
-│   ├── RegisterPage.jsx
-│   ├── DashboardPage.jsx
-│   ├── RecipeResultsPage.jsx
-│   ├── RecipeDetailsPage.jsx
-│   ├── FavoritesPage.jsx
-│   └── ProfilePage.jsx
 ├── supabase.js
 ├── App.jsx
 └── main.jsx
+```
 
-How to Run Locally
+## Run Locally
+
+```bash
 npm install
 npm run dev
+```
 
-Then open:
+Open:
 
+```txt
 http://localhost:5173
-Environment Variables
+```
 
-Create a .env file and add:
-
-VITE_SUPABASE_URL=your_supabase_project_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-Deployment
-
-The project is deployed with Vercel.
-Every push to the main branch automatically updates the live website.
-
-Author
+## Author
 
 Created by Diana Heynman.
