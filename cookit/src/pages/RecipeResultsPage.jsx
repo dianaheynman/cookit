@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
-import RecipeCard from "../components/RecipeCard/RecipeCard";
 import BottomNavigation from "../components/BottomNavigation/BottomNavigation";
 import { supabase } from "../supabase";
 
@@ -25,18 +24,35 @@ function RecipeResultsPage() {
     <>
       <Navbar />
 
-      <main style={{ padding: "24px" }}>
+      <main style={{ padding: "24px", paddingBottom: "90px" }}>
         <h1>All Recipes</h1>
         <p>Browse all available recipes:</p>
 
         <div className="recipe-gallery">
           {recipes.map((recipe) => (
-            <RecipeCard
-              key={recipe.id}
-              recipeId={recipe.id}
-              image={recipe.image_url}
-              title={recipe.title}
-            />
+            <div className="recipe-card" key={recipe.id}>
+              <img src={recipe.image_url} alt={recipe.title} />
+
+              <h2>{recipe.title}</h2>
+
+              <h3>Ingredients:</h3>
+              <ul>
+                {recipe.ingredients
+                  ? recipe.ingredients.split(",").map((item, index) => (
+                      <li key={index}>{item.trim()}</li>
+                    ))
+                  : <li>No ingredients added yet</li>}
+              </ul>
+
+              <h3>Instructions:</h3>
+              <ol>
+                {recipe.instructions
+                  ? recipe.instructions.split(".").filter(Boolean).map((step, index) => (
+                      <li key={index}>{step.trim()}</li>
+                    ))
+                  : <li>No instructions added yet</li>}
+              </ol>
+            </div>
           ))}
         </div>
       </main>
