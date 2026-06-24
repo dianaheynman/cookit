@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 function BottomNavigation() {
+  const navigate = useNavigate();
+
   return (
     <div
       style={{
@@ -12,9 +16,26 @@ function BottomNavigation() {
         padding: "14px",
       }}
     >
-      <span>🏠 Home</span>
-      <span>🔍 Search</span>
-      <span>❤️ Favorites</span>
+      <span
+        style={{ cursor: "pointer" }}
+        onClick={() => navigate("/dashboard")}
+      >
+        🏠 Home
+      </span>
+
+      <span
+        style={{ cursor: "pointer" }}
+        onClick={() => navigate("/recipes")}
+      >
+        🔍 Search
+      </span>
+
+      <span
+        style={{ cursor: "pointer" }}
+        onClick={() => navigate("/favorites")}
+      >
+        ❤️ Favorites
+      </span>
     </div>
   );
 }

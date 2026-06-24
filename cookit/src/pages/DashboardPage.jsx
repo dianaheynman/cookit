@@ -1,9 +1,47 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../supabase";
+
 import Navbar from "../components/Navbar/Navbar";
 import SearchBar from "../components/SearchBar/SearchBar";
 import RecipeCard from "../components/RecipeCard/RecipeCard";
 import BottomNavigation from "../components/BottomNavigation/BottomNavigation";
 
 function DashboardPage() {
+  const navigate = useNavigate();
+  const [recipes, setRecipes] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    async function checkUser() {
+      const { data } = await supabase.auth.getUser();
+
+      if (!data.user) {
+        navigate("/login");
+      }
+    }
+
+    checkUser();
+  }, [navigate]);
+
+  useEffect(() => {
+    async function fetchRecipes() {
+      const { data, error } = await supabase.from("recipes").select("*");
+
+      if (error) {
+        console.log(error);
+      } else {
+        setRecipes(data);
+      }
+    }
+
+    fetchRecipes();
+  }, []);
+
+  const filteredRecipes = recipes.filter((recipe) =>
+    recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <Navbar />
@@ -12,8 +50,21 @@ function DashboardPage() {
         <h1>Hello Diana 👋</h1>
         <p>What would you like to cook today?</p>
 
-        <SearchBar />
-        <RecipeCard />
+        <SearchBar
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
+
+        <div className="recipe-gallery">
+          {filteredRecipes.map((recipe) => (
+            <RecipeCard
+              key={recipe.id}
+              recipeId={recipe.id}
+              image={recipe.image_url}
+              title={recipe.title}
+            />
+          ))}
+        </div>
       </main>
 
       <BottomNavigation />

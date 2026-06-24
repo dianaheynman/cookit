@@ -1,9 +1,11 @@
-function SearchBar() {
+function SearchBar({ searchTerm, setSearchTerm }) {
   return (
     <div style={{ margin: "20px 0" }}>
       <input
         type="text"
-        placeholder="Search ingredients..."
+        placeholder="Search recipes..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
         style={{
           padding: "12px",
           width: "70%",

@@ -1,15 +1,31 @@
+import { supabase } from "../../supabase";
+import { useNavigate } from "react-router-dom";
+
 function Navbar() {
+  const navigate = useNavigate();
+
+  async function handleLogout() {
+    await supabase.auth.signOut();
+    navigate("/login");
+  }
+
   return (
-    <nav
-      style={{
-        padding: "16px",
-        background: "#ff8a65",
-        color: "white",
-        fontSize: "24px",
-        fontWeight: "bold",
-      }}
-    >
-      CookIt 🍳
+    <nav className="navbar">
+      <div className="logo">CookIt</div>
+
+   <div className="nav-links">
+  <a href="/">Home</a>
+  <a href="/dashboard">Dashboard</a>
+  <a href="/recipes">Recipes</a>
+  <a href="/profile">Profile</a>
+      </div>
+
+      <button
+        className="nav-button"
+        onClick={handleLogout}
+      >
+        Logout
+      </button>
     </nav>
   );
 }
