@@ -1,16 +1,74 @@
-# React + Vite
+# CookIt 🍳
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CookIt is a recipe web application built with React and Supabase.  
+The app allows users to browse recipes, view ingredients and cooking instructions, manage favorites, and use authentication features.
 
-Currently, two official plugins are available:
+## Live Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://cookit-j5ou.vercel.app
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- JavaScript
+- CSS
+- Supabase
+- Vercel
+- GitHub
 
-## Expanding the ESLint configuration
+## Main Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- User registration and login
+- Dashboard page
+- Recipe list
+- Recipe details page
+- Ingredients and instructions for each recipe
+- Favorites page
+- Profile page
+- Responsive design for desktop and mobile
+- Supabase database connection
+- Deployment with Vercel
+
+## Project Structure
+
+```txt
+src/
+├── components/
+│   ├── Navbar/
+│   ├── BottomNavigation/
+│   └── RecipeCard/
+├── pages/
+│   ├── LandingPage.jsx
+│   ├── LoginPage.jsx
+│   ├── RegisterPage.jsx
+│   ├── DashboardPage.jsx
+│   ├── RecipeResultsPage.jsx
+│   ├── RecipeDetailsPage.jsx
+│   ├── FavoritesPage.jsx
+│   └── ProfilePage.jsx
+├── supabase.js
+├── App.jsx
+└── main.jsx
+
+How to Run Locally
+npm install
+npm run dev
+
+Then open:
+
+http://localhost:5173
+Environment Variables
+
+Create a .env file and add:
+
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+Deployment
+
+The project is deployed with Vercel.
+Every push to the main branch automatically updates the live website.
+
+Author
+
+Created by Diana Heynman.
